@@ -13,6 +13,7 @@ function Projects() {
                 width: '100%',
                 marginTop: '20px',
                 boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+                borderRadius: '20px',
                 display: 'block',
                 paddingBottom: '20px',
               }}
@@ -24,6 +25,7 @@ function Projects() {
                   width: '100%',
                   height: '300px',
                   objectFit: 'cover',
+                  borderRadius: '20px 20px 0px 0px',
                 }}
               />
               <div style={{ textAlign: 'center' }}>
