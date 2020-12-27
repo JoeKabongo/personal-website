@@ -7,8 +7,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:#fff ;
+  font-family: Verdana;
 }
 
+a {
+  text-decoration: none;
+  color: #000000;
+}
 
 /* navbar style */
 nav {
@@ -39,11 +45,10 @@ nav li {
 
 }
 
-nav li:hover {
-  background-color: #36D7B7;
-  color:#000;
+nav a:hover {
+  color: #36D7B7;
+  /* color:#000; */
 }
-
 
 nav .link {
   text-decoration: none;
@@ -53,4 +58,37 @@ nav .link {
 
 .page-container {
   margin-top: 150px;
+}
+
+/* */
+
+#homepage-section a {
+  margin: 10px;
+  text-decoration: none;
+  color: #000;
+  padding: 20px;
+  display: inline-block;
+}
+
+
+/* project page*/
+
+.project-link-container {
+  text-align: center
+}
+.project-link-container a {
+  margin: 10px;
+  background: #000;
+  color:#fff;
+
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.project-link-container a:hover {
+  color:#fff;
+  background:  #36D7B7;
+
 }
