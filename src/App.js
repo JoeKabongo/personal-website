@@ -25,7 +25,7 @@ function App() {
         <Route path="/projects/:id">
           <SingleProject />
         </Route>
-        <Route path="/blog">
+        <Route exact path="/blog">
           <Blog />
         </Route>
         <Route path="/blog/:id">

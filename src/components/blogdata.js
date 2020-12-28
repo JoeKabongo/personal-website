@@ -1,8 +1,9 @@
-import nbatalk from '../nbatalk.png';
-import capital from '../capitals.png';
-import book from '../book.png';
+import nbatalk from '../javascript.png';
+import capital from '../codes.jpg';
+import book from '../intuit.png';
 export const data = [
   {
+    id: 10,
     image: nbatalk,
     title: 'WHY I prefere React over Angular for frontend development ',
     description: 'SOCIAL MEDIA WEB APP THAT ALLOW USERS TO SEARCH BLABLABLA',
@@ -15,6 +16,7 @@ export const data = [
   },
 
   {
+    id: 14,
     image: capital,
     title: 'My Favorite sorting algorithm and its implementation',
     description: 'A quiz game to test people on knowldge of their blahblahblah',
@@ -27,6 +29,7 @@ export const data = [
   },
 
   {
+    id: 23,
     image: nbatalk,
     title: 'WHY I prefere React over Angular for frontend development',
     description: 'SOCIAL MEDIA WEB APP THAT ALLOW USERS TO SEARCH BLABLABLA',
@@ -39,6 +42,7 @@ export const data = [
   },
 
   {
+    id: 8,
     image: book,
     title: 'Lesson Building a project with over 10k lines of code',
     description: 'Search for books and save books when needed',
@@ -51,6 +55,7 @@ export const data = [
   },
 
   {
+    id: 30,
     image: book,
     title: 'Lesson Building a project with over 10k lines of code',
     description: 'Search for books and save books when needed',
@@ -63,6 +68,7 @@ export const data = [
   },
 
   {
+    id: 76,
     image: book,
     title: 'Lesson Building a project with over 10k lines of code',
     description: 'Search for books and save books when needed',

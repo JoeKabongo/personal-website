@@ -1,7 +1,14 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 function Article() {
-  return <h1> Article</h1>;
+  const { id } = useParams();
+
+  return (
+    <div className="page-container">
+      <h1> Article {id}</h1>
+    </div>
+  );
 }
 
 export default Article;

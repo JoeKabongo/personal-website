@@ -4,18 +4,21 @@ import { data } from './projectData';
 function Projects() {
   return (
     <section className="page-container">
-      <h1> Projects</h1>
+      <h1> PROJECTS</h1>
       <div style={{ marginBottom: '20px' }}>
         {data.map((project) => {
           return (
             <div
               style={{
                 width: '100%',
-                marginTop: '20px',
+                marginBottom: '30px',
                 boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+                // border: '1px solid #eb',
+
                 borderRadius: '20px',
                 display: 'block',
                 paddingBottom: '20px',
+                background: '#fff',
               }}
             >
               <img
@@ -23,7 +26,7 @@ function Projects() {
                 src={project.image}
                 style={{
                   width: '100%',
-                  height: '300px',
+                  height: '200px',
                   objectFit: 'cover',
                   borderRadius: '20px 20px 0px 0px',
                 }}

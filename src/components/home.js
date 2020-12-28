@@ -6,10 +6,13 @@ import { data } from './projectData';
 function Home() {
   return (
     <div className="page-container">
+      <h1> Home</h1>
+
       <section
         style={{
           borderRadius: '10px',
-          boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+          // boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+          border: '1px solid #ebebeb',
           textAlign: 'center',
           padding: '50px',
           backgroundColor: 'white',
