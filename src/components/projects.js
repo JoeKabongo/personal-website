@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { data } from './projectData';
-
+import sanityClient from '../client';
 function Projects() {
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "project"] {
+                title, 
+                mainImage{
+                  asset->{
+                      _id,
+                      url
+                  },
+                  alt
+              },
+              description,
+              github,
+              link,
+              actions
+              
+                
+            }`
+      )
+      .then((data) => {
+        setProjects(data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
   return (
     <section className="page-container">
       <h1> PROJECTS</h1>
       <div style={{ marginBottom: '20px' }}>
-        {data.map((project) => {
+        {projects.map((project) => {
           return (
             <div
               style={{
@@ -23,7 +49,7 @@ function Projects() {
             >
               <img
                 alt={project.title}
-                src={project.image}
+                src={project.mainImage.asset.url}
                 style={{
                   width: '100%',
                   height: '200px',
@@ -38,25 +64,20 @@ function Projects() {
 
               <div style={{ padding: '10px' }}>
                 <ul>
-                  {project.talks.map((task) => {
+                  {project.actions.map((task) => {
                     return <li>{task}</li>;
                   })}
                 </ul>
               </div>
               <div className="project-link-container">
-                <a
-                  href="http://the-nba-talk-frontend.s3-website-us-east-1.amazonaws.com/"
-                  target="_blank"
-                >
+                <a href={project.github} target="_blank">
                   Github
                 </a>
-
-                <a
-                  href="http://the-nba-talk-frontend.s3-website-us-east-1.amazonaws.com/"
-                  target="_blank"
-                >
-                  View App
-                </a>
+                {project.link && (
+                  <a href={project.link} target="_blank">
+                    View App
+                  </a>
+                )}
               </div>
             </div>
           );
