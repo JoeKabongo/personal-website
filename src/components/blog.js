@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import sanityClient from '../client';
-import { data } from './blogdata';
 import { Link } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 function Blog() {
+  document.title = 'Blog | Jonathan Tshimpaka';
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     sanityClient
       .fetch(
@@ -18,28 +20,29 @@ function Blog() {
                   },
                   alt
               },
-              content
+              description
                 
             }`
       )
       .then((data) => {
         console.log(data);
         setPosts(data);
+        setIsLoading(false);
       })
       .catch((error) => console.log(error));
   }, []);
+  if (isLoading) {
+    return (
+      <div style={{ marginTop: '200px', textAlign: 'center' }}>
+        <ClipLoader size={150} color={'#123abc'} loading={true} />
+      </div>
+    );
+  }
+
   return (
     <section className="page-container">
       <h1> BLOG</h1>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          flexWrap: 'wrap',
-          alignContent: 'flex-start',
-          alignItems: 'center',
-        }}
-      >
+      <div id="blog-container">
         {posts.map((post, index) => {
           console.log(post);
           return (
@@ -60,7 +63,7 @@ function Blog() {
               />
 
               <h2 style={{ padding: '10px' }}>{post.title}</h2>
-              <p style={{ padding: '10px' }}>{post.content}</p>
+              <p style={{ padding: '10px' }}>{post.description}</p>
             </Link>
           );
         })}

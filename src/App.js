@@ -6,6 +6,7 @@ import Article from './components/article';
 import Blog from './components/blog';
 import Home from './components/home';
 import Projects from './components/projects';
+import Footer from './components/footer';
 function App() {
   return (
     <Router>
@@ -28,6 +29,7 @@ function App() {
           <Article />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }

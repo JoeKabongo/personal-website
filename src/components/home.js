@@ -1,33 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import image from '../jonathanT.JPG';
 import { SocialIcon } from 'react-social-icons';
-import { data } from './projectData';
 
 function Home() {
+  document.title = 'Jonathan Tshimpaka';
+  useEffect(() => {
+    window.addEventListener('resize', () => console.log(window.innerWidth));
+  });
   return (
-    <div className="page-container">
+    <section className="page-container">
       <h1> Home</h1>
 
-      <section
-        style={{
-          borderRadius: '10px',
-          // boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
-          border: '1px solid #ebebeb',
-          textAlign: 'center',
-          padding: '50px',
-          backgroundColor: 'white',
-          display: 'block',
-        }}
-        id="homepage-section"
-      >
-        <img src={image} style={{ width: '25%' }} alt="jonathan" />
+      <div id="homepage-section-container">
+        <img src={image} alt="jonathan" />
+        <h3> Hello, I am Jonathan!</h3>
         <p>
-          Hello! My name is Jonathan Tshimpaka. I am a software engineer;
-          currently studing computer science at San Jose State University.
-          <br></br>
-          Thank you for visiting my website, I hope you enjoy it!
+          I am a software engineer; currently studing computer science at San
+          Jose State University. This is my personal website, you will find my
+          personal projects, blog articles I've written , and learn a little bit
+          about me.
+          <br></br>I hope you enjoy it!
         </p>
-        {/* <Link to="/about"> About Me</Link> */}
 
         <SocialIcon
           url="https://www.linkedin.com/in/jonathan-tshimpaka/"
@@ -39,8 +32,8 @@ function Home() {
           target="_blank"
           style={{ height: 35, width: 35 }}
         />
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
 

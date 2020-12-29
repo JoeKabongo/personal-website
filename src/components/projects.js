@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { data } from './projectData';
 import sanityClient from '../client';
+import ClipLoader from 'react-spinners/ClipLoader';
+
 function Projects() {
+  document.title = 'Projects | Jonathan Tshimpaka';
   const [projects, setProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     sanityClient
       .fetch(
@@ -25,66 +28,50 @@ function Projects() {
       )
       .then((data) => {
         setProjects(data);
+        setIsLoading(false);
       })
       .catch((error) => console.log(error));
   }, []);
+  if (isLoading) {
+    return (
+      <div style={{ marginTop: '200px', textAlign: 'center' }}>
+        <ClipLoader size={150} color={'#123abc'} loading={true} />
+      </div>
+    );
+  }
   return (
     <section className="page-container">
       <h1> PROJECTS</h1>
-      <div style={{ marginBottom: '20px' }}>
-        {projects.map((project) => {
-          return (
-            <div
-              style={{
-                width: '100%',
-                marginBottom: '30px',
-                boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
-                // border: '1px solid #eb',
-
-                borderRadius: '20px',
-                display: 'block',
-                paddingBottom: '20px',
-                background: '#fff',
-              }}
-            >
-              <img
-                alt={project.title}
-                src={project.mainImage.asset.url}
-                style={{
-                  width: '100%',
-                  height: '200px',
-                  objectFit: 'cover',
-                  borderRadius: '20px 20px 0px 0px',
-                }}
-              />
-              <div style={{ textAlign: 'center' }}>
-                <h2>{project.title}</h2>
-                <p>{project.description}</p>
-              </div>
-
-              <div style={{ padding: '10px' }}>
-                <ul>
-                  {project.actions.map((task) => {
-                    return <li>{task}</li>;
-                  })}
-                </ul>
-              </div>
-              <div className="project-link-container">
-                <a href={project.github} target="_blank">
-                  Github
-                </a>
-                {project.link && (
-                  <a href={project.link} target="_blank">
-                    View App
-                  </a>
-                )}
-              </div>
+      {projects.map((project) => {
+        return (
+          <div className="project-card">
+            <img alt={project.title} src={project.mainImage.asset.url} />
+            <div style={{ textAlign: 'center' }}>
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
             </div>
-          );
-        })}
-      </div>
+
+            <div style={{ padding: '10px' }}>
+              <ul>
+                {project.actions.map((task) => {
+                  return <li>{task}</li>;
+                })}
+              </ul>
+            </div>
+            <div className="project-link-container">
+              <a href={project.github} target="_blank">
+                Github
+              </a>
+              {project.link && (
+                <a href={project.link} target="_blank">
+                  View App
+                </a>
+              )}
+            </div>
+          </div>
+        );
+      })}
     </section>
   );
 }
-
 export default Projects;
