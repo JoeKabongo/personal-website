@@ -5,45 +5,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-const serializers = {
-  types: {
-    code: (props) => (
-      <SyntaxHighlighter language={props.node.language} showLineNumbers={true}>
-        {props.node.code}
-      </SyntaxHighlighter>
-    ),
-  },
-};
-
-function convertNumberToMonth(month) {
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
-  if (month < 0 || month > 12) {
-    return 'NaN';
-  }
-  return months[month - 1];
-}
-function handleTimeStamp(timeStamp) {
-  let [year, month, day] = timeStamp.split('-');
-  month = convertNumberToMonth(month);
-  day = day.slice(0, 2);
-  return month + ' ' + day + ', ' + year;
-}
-
-function Article() {
+export default function Article() {
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { slug } = useParams();
@@ -110,4 +72,40 @@ function Article() {
   );
 }
 
-export default Article;
+const serializers = {
+  types: {
+    code: (props) => (
+      <SyntaxHighlighter language={props.node.language} showLineNumbers={true}>
+        {props.node.code}
+      </SyntaxHighlighter>
+    ),
+  },
+};
+
+function convertNumberToMonth(month) {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  if (month < 0 || month > 12) {
+    return 'NaN';
+  }
+  return months[month - 1];
+}
+function handleTimeStamp(timeStamp) {
+  let [year, month, day] = timeStamp.split('-');
+  month = convertNumberToMonth(month);
+  day = day.slice(0, 2);
+  return month + ' ' + day + ', ' + year;
+}

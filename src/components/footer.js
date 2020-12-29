@@ -5,6 +5,5 @@ export default function Footer() {
     textAlign: 'center',
     margin: '20px',
   };
-
   return <footer style={style}>&#169; Jonathan Tshimpaka</footer>;
 }

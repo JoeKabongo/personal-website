@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import image from '../jonathanT.JPG';
 import { SocialIcon } from 'react-social-icons';
 
-function Home() {
+export default function Home() {
   document.title = 'Jonathan Tshimpaka';
-  useEffect(() => {
-    window.addEventListener('resize', () => console.log(window.innerWidth));
-  });
+
   return (
     <section className="page-container">
       <h1> Home</h1>
@@ -36,5 +34,3 @@ function Home() {
     </section>
   );
 }
-
-export default Home;

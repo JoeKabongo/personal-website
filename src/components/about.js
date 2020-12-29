@@ -1,7 +1,7 @@
 import React from 'react';
 import image from '../jonathanT.JPG';
 
-function About() {
+export default function About() {
   document.title = 'About Me | Jonathan Tshimpaka';
   return (
     <article className="page-container" id="about-page">
@@ -78,5 +78,3 @@ function About() {
     </article>
   );
 }
-
-export default About;

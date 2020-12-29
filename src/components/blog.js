@@ -3,7 +3,7 @@ import sanityClient from '../client';
 import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-function Blog() {
+export default function Blog() {
   document.title = 'Blog | Jonathan Tshimpaka';
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -51,19 +51,10 @@ function Blog() {
               className="blog-card"
               key={index}
             >
-              <img
-                alt={post.title}
-                src={post.mainImage.asset.url}
-                style={{
-                  width: '100%',
-                  height: '300px',
-                  objectFit: 'cover',
-                  borderBottom: '3px solid #36D7B7',
-                }}
-              />
+              <img alt={post.title} src={post.mainImage.asset.url} />
 
-              <h2 style={{ padding: '10px' }}>{post.title}</h2>
-              <p style={{ padding: '10px' }}>{post.description}</p>
+              <h2>{post.title}</h2>
+              <p>{post.description}</p>
             </Link>
           );
         })}
@@ -71,4 +62,3 @@ function Blog() {
     </section>
   );
 }
-export default Blog;

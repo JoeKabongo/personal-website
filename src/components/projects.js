@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import sanityClient from '../client';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-function Projects() {
+export default function Projects() {
   document.title = 'Projects | Jonathan Tshimpaka';
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -74,4 +74,3 @@ function Projects() {
     </section>
   );
 }
-export default Projects;
