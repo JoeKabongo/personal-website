@@ -7,6 +7,7 @@ import Blog from './components/blog';
 import Home from './components/home';
 import Projects from './components/projects';
 import Footer from './components/footer';
+import ErrorPage from './components/error';
 function App() {
   return (
     <Router>
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route path="/blog/:slug">
           <Article />
+        </Route>
+        <Route path="*">
+          <ErrorPage />
         </Route>
       </Switch>
       <Footer />

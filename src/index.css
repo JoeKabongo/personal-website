@@ -167,8 +167,8 @@ nav .link {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    align-content: flex-start;
-    align-items: center;
+    /* align-content: flex-start; */
+    align-items: flex-start;
 }
 .blog-card {
   width: 500px;

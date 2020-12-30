@@ -4,12 +4,12 @@ import sanityClient from '../client';
 import BlockContent from '@sanity/block-content-to-react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import ClipLoader from 'react-spinners/ClipLoader';
+import ErrorPage from './error';
 
 export default function Article() {
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { slug } = useParams();
-  console.log(slug);
   useEffect(() => {
     sanityClient
       .fetch(
@@ -44,6 +44,10 @@ export default function Article() {
         <ClipLoader size={150} color={'#123abc'} loading={true} />
       </div>
     );
+  }
+
+  if (!post) {
+    return <ErrorPage message="Blog post not found" />;
   }
   return (
     <article className="page-container" id="article-container">

@@ -25,7 +25,7 @@ export default function Blog() {
             }`
       )
       .then((data) => {
-        setPosts(data);
+        setPosts(data.reverse());
         setIsLoading(false);
       })
       .catch((error) => console.log(error));
