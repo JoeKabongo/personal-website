@@ -82,6 +82,13 @@ const serializers = {
   },
 };
 
+function handleTimeStamp(timeStamp) {
+  let [year, month, day] = timeStamp.split('-');
+  month = convertNumberToMonth(month);
+  day = day.slice(0, 2);
+  return month + ' ' + day + ', ' + year;
+}
+
 function convertNumberToMonth(month) {
   const months = [
     'January',
@@ -102,10 +109,4 @@ function convertNumberToMonth(month) {
     return 'NaN';
   }
   return months[month - 1];
-}
-function handleTimeStamp(timeStamp) {
-  let [year, month, day] = timeStamp.split('-');
-  month = convertNumberToMonth(month);
-  day = day.slice(0, 2);
-  return month + ' ' + day + ', ' + year;
 }

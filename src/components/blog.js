@@ -25,12 +25,13 @@ export default function Blog() {
             }`
       )
       .then((data) => {
-        console.log(data);
         setPosts(data);
         setIsLoading(false);
       })
       .catch((error) => console.log(error));
   }, []);
+
+  /* Still trying to acquire data*/
   if (isLoading) {
     return (
       <div style={{ marginTop: '200px', textAlign: 'center' }}>

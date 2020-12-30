@@ -7,6 +7,7 @@ export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    setIsLoading(true);
     sanityClient
       .fetch(
         `*[_type == "project"] {
