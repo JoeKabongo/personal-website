@@ -60,11 +60,11 @@ export default function Projects() {
               </ul>
             </div>
             <div className="project-link-container">
-              <a href={project.github} target="_blank">
+              <a href={project.github} target="_blank" rel="noreferrer">
                 Github
               </a>
               {project.link && (
-                <a href={project.link} target="_blank">
+                <a href={project.link} target="_blank" rel="noreferrer">
                   View App
                 </a>
               )}

@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <section className="page-container">
-      <h1> Home</h1>
+      <h1> Home </h1>
 
       <div id="homepage-section-container">
         <img src={image} alt="jonathan" />

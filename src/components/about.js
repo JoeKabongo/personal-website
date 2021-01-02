@@ -46,6 +46,7 @@ export default function About() {
             href="https://github.com/JoeKabongo"
             style={{ margin: '10px', color: '#36D7B7', fontWeight: 'bold' }}
             target="_blank"
+            rel="noreferrer"
           >
             GitHub
           </a>
@@ -70,6 +71,7 @@ export default function About() {
             href="https://www.linkedin.com/in/jonathan-tshimpaka/"
             target="_blank"
             style={{ margin: '10px', color: '#36D7B7', fontWeight: 'bold' }}
+            rel="noreferrer"
           >
             LinkedIn
           </a>
