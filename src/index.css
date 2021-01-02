@@ -160,6 +160,8 @@ nav .link {
   height: 200px;
   object-fit: cover;
   border-radius: 20px 20px 0px 0px;
+  border-bottom: 3px solid #36D7B7;
+
 }
 
 /* blog component */
