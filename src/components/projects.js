@@ -19,6 +19,7 @@ export default function Projects() {
                   },
                   alt
               },
+              priority,
               description,
               github,
               link,
@@ -28,6 +29,7 @@ export default function Projects() {
             }`
       )
       .then((data) => {
+        data.sort((a, b) => a.priority - b.priority);
         setProjects(data);
         setIsLoading(false);
       })
