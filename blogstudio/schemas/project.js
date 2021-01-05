@@ -22,6 +22,10 @@ export default {
       type: 'string',
     },
     {
+      name: 'priority',
+      type: 'number',
+    },
+    {
       name: 'github',
       type: 'url',
     },
