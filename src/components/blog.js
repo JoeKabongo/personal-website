@@ -45,7 +45,6 @@ export default function Blog() {
       <h1> BLOG</h1>
       <div id="blog-container">
         {posts.map((post, index) => {
-          console.log(post);
           return (
             <Link
               to={`/blog/${post.slug.current}`}
