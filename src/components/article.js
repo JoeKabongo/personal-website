@@ -6,22 +6,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import ClipLoader from 'react-spinners/ClipLoader';
 import ErrorPage from './error';
-import typescript from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark';
-
-const serializers = {
-  types: {
-    code: (props) => (
-      <SyntaxHighlighter
-        language={props.node.language}
-        showLineNumbers={true}
-        style={typescript}
-        customStyle={{ fontSize: 'large' }}
-      >
-        {props.node.code}
-      </SyntaxHighlighter>
-    ),
-  },
-};
+import dark from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark';
 
 export default function Article() {
   const [post, setPost] = useState(null);
@@ -93,6 +78,20 @@ export default function Article() {
   );
 }
 
+const serializers = {
+  types: {
+    code: (props) => (
+      <SyntaxHighlighter
+        language={props.node.language}
+        showLineNumbers={true}
+        style={dark}
+        customStyle={{ fontSize: 'large' }}
+      >
+        {props.node.code}
+      </SyntaxHighlighter>
+    ),
+  },
+};
 function handleTimeStamp(timeStamp) {
   let [year, month, day] = timeStamp.split('-');
   month = convertNumberToMonth(month);
